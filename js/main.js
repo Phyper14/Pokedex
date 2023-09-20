@@ -19,17 +19,16 @@ const getPokemons = async () => {
 }
 
 getPokemons().then((pokemons) => {
-    const main = document.getElementById("main")
-    console.log("main-> ", main)
-    console.log("POKEMONS -> ", pokemons)
+    const main = document.getElementById("pokemonList")
     pokemons.map((pokemon) => {
         const pokemonImage = document.createElement("img")
         pokemonImage.src = pokemon.defaultSprite
         const pokemonName = document.createElement("h4")
         pokemonName.innerHTML = `${pokemon.order} - ${pokemon.name}`
+        pokemonName.className = "pokemonName"
         const thisElement = document.createElement("div")
         thisElement.append(pokemonImage, pokemonName)
-        console.log("thisELEMENT -> ", thisElement)
+        thisElement.className= "pokemonCard"
         main.append(thisElement)
     })
 })
